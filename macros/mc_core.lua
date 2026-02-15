@@ -12,8 +12,11 @@ function Core.isMinecraftFocused()
     return name:find("minecraft") ~= nil or name == "java"
 end
 
--- Show alert overlay
+-- Show alert overlay (set Core.showAlerts = false to disable)
+Core.showAlerts = false
+
 function Core.alert(text, duration)
+    if not Core.showAlerts then return end
     hs.alert.show("MC: " .. text, duration or 1)
 end
 
